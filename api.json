@@ -1,0 +1,369 @@
+{
+  "info": {
+    "name": "Hospital Management system API Collection",
+    "description": "Complete REST API collection for Hospital Appointment System",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+
+  "item": [
+    {
+      "name": "Signup",
+      "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:8000//api/register/",
+      "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+                "email": "man@gmail.com",
+                "password": "admin",
+                "role": "doctor"
+                },
+        "output":
+             {
+             "email": "meena@gmail.com",
+             "role": "doctor"
+            }        
+      }
+    }
+  ]
+
+},
+  {
+    "name": "Token",
+      "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:8000//api/login/",
+
+        "body": {
+                "email": "user@example.com",
+                "password": "123456"
+                },
+        "output":
+             {
+    "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODkyMDUzMCwiaWF0IjoxNzY4ODM0MTMwLCJqdGkiOiJhM2FiZTgyMWE4MzQ0ZGM2YTA0NGRjNGRkYTdiNTRmMSIsInVzZXJfaWQiOjF9.dR_5yefZisncstaVHEX4jRUmQgrrF4odqOGnAFFVC7w",
+    "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4OTIwNTMwLCJpYXQiOjE3Njg4MzQxMzAsImp0aSI6IjExMjg3MzdkYTk3YzQ1NjRhNjQxYTdmZmNhOGJmZDFlIiwidXNlcl9pZCI6MX0.eDLwqfcXzmqxstZ7EmRyFWNmgMgJx_cd7w2LlKEisw8"
+}      
+ }
+},
+
+
+
+{
+      "name": "Refresh Token",
+      "request": {
+      "method": "POST",
+      "url": "http://127.0.0.1:8000/api/refresh/",
+
+        "body": {
+                "refresh": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoicmVmcmVzaCIsImV4cCI6MTc2ODkyMDUzMCwiaWF0IjoxNzY4ODM0MTMwLCJqdGkiOiJhM2FiZTgyMWE4MzQ0ZGM2YTA0NGRjNGRkYTdiNTRmMSIsInVzZXJfaWQiOjF9.dR_5yefZisncstaVHEX4jRUmQgrrF4odqOGnAFFVC7w",
+                },
+        "output":
+             {
+              "access": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzY4OTIwNTMwLCJpYXQiOjE3Njg4MzQxMzAsImp0aSI6IjExMjg3MzdkYTk3YzQ1NjRhNjQxYTdmZmNhOGJmZDFlIiwidXNlcl9pZCI6MX0.eDLwqfcXzmqxstZ7EmRyFWNmgMgJx_cd7w2LlKEisw8"
+    }      
+ }
+},
+
+    {
+      "name": "Profile List",
+      "request": {
+      "method": "GET",
+      "url": "http://127.0.0.1:8000//api/profile/",
+
+        "body": { },
+        "output":        
+              {
+             "id": 1,
+             "email": "user@example.com",
+             "role": "patient",
+             "phone": null,
+             "gender": null,
+             "dob": null
+             }         
+ }
+},
+
+{
+      "name": "Create Doctor",
+      "request": {
+      "method": "POST",
+      "url": " http://127.0.0.1:8000/api/doctors/",
+
+        "body": {
+                   "email": "dr.varundas@example.com",
+                    "password": "Password1234",
+                    "specialization": "Cardiology",
+                    "experience": 10,
+                    "fees": "5000.00",
+                    "available_days": "Mon,Wed,Fri",
+                    "available_from": "09:00",
+                    "available_to": "12:00"
+                 },
+        "output":
+             {
+                 "specialization": "Cardiology",
+                 "experience": 10,
+                 "fees": "5000.00",
+                "available_days": "Mon,Wed,Fri",
+                "available_from": "09:00:00",
+                "available_to": "12:00:00"
+                }        
+ }
+},
+
+
+{
+      "name": "List Doctor",
+      "request": {
+      "method": "GET",
+      "url": " http://127.0.0.1:8000/api/doctors/",
+
+        "body": {},
+  
+        "output":
+             [
+         {
+           "id": 1,
+           "user": {
+            "id": 4,
+            "email": "man@gmail.com",
+            "role": "doctor",
+            "phone": null,
+            "gender": null,
+            "dob": null
+            },
+         "specialization": "Cardiology",
+        "experience": 10,
+        "fees": "500.00",
+        "available_days": "Mon,Wed,Fri",
+        "available_from": "09:00:00",
+        "available_to": "17:00:00"
+    }],
+}
+}
+
+
+{
+      "name": "List Doctor Detail",
+      "request": {
+      "method": "GET",
+      "url": " http://127.0.0.1:8000/api/doctors/id/",
+      }
+    }
+
+
+{
+      "name": "Update Doctor",
+      "request": {
+      "method": "PUT",
+      "url": "http://127.0.0.1:8000/api/doctors/1/",
+      "body":{
+        "email": "dr.varundas@example.com",
+        "password": "Password1234",
+         "specialization": "Cardiology",
+          "experience": 10,
+         "fees": "15000.00",
+          "available_days": "Mon,Wed,Fri",
+        "available_from": "09:00",
+          "available_to": "12:00"
+         },
+      "output":{
+        "email": "dr.varundas@example.com",
+        "password": "Password1234",
+        "specialization": "Cardiology",
+        "experience": 10,
+         "fees": "15000.00",
+         "available_days": "Mon,Wed,Fri",
+        "available_from": "09:00",
+     "available_to": "12:00"
+      }
+}
+}
+
+
+{
+    "name": "Delete Doctor",
+    "request": {
+     "method": "DELETE",
+    "url": " http://127.0.0.1:8000/api/doctors/1/",
+        }
+}
+      
+
+
+    {
+      "name": "Profile Create Patient",
+      "request": {
+      "method": "CREATE",
+      "url": " http://127.0.0.1:8000/api/patients/",
+
+        "body": {
+              "email": "test@gmail.com",
+              "password": "1234",
+              "address": "test",
+             "age": 25
+             },
+        "output":        
+              {
+             "address": "test",
+             "age": 25
+             }        
+ }
+},
+
+
+{
+      "name": " list Patient",
+      "request": {
+      "method": "GET",
+      "url": " http://127.0.0.1:8000/api/patients/",
+
+        "body": {},
+        "output":
+             [
+    {
+        "id": 1,
+         "user": {
+            "id": 1,
+            "email": "user@example.com",
+            "role": "patient",
+            "phone": null,
+            "gender": null,
+            "dob": null
+        },
+        "address": null,
+        "age": null
+    },
+         ]         
+ }
+},
+
+
+
+{
+      "name": " Update Patient",
+      "request": {
+      "method": "PUT",
+      "url": " http://127.0.0.1:8000/api/patients/id/",
+
+        "body": {
+            "email": "test2@gmail.com",
+           "password": "12345",
+             "address": "kerala",
+              "age": 25
+},
+        "output":
+             {
+             "address": "kerala",
+              "age": 25
+}
+         
+ }
+},
+
+
+{
+        "name": "Delete Patient",
+        "request": {
+        "method": "DELETE",
+         "url": "http://127.0.0.1:8000/api/patients/id/",
+          }  
+}
+
+
+
+{
+        "name": "Create Appointment",
+        "request": {
+        "method": "CREATE",
+        "url": "http://127.0.0.1:8000/api/appointments/",
+            "body":{
+               "patient":6 ,
+               "doctor": 1,
+               "date": "2026-11-20",
+               "time": "9:00",
+               "reason": "stomec pain"
+              },
+              "output":{
+    
+                 "doctor": 1,
+                 "date": "2026-11-20",
+                  "time": "09:00:00",
+                 "reason": "stomec pain",
+                 "status": "PENDING"
+                    }
+        }
+}
+
+
+{
+        "name": "patient list Appointment",
+        "request": {
+         "method": "GET",
+         "url": "http://127.0.0.1:8000/api/appointments/my/",
+        "body":{},
+            "output":[
+      {
+        "doctor": 5,
+        "date": "2026-01-21",
+        "time": "10:00:00",
+        "reason": "test",
+        "status": "PENDING"
+    },
+    {
+        "doctor": 1,
+        "date": "2026-11-20",
+        "time": "09:00:00",
+        "reason": "stomec pain",
+        "status": "PENDING"
+    }
+]
+ }
+}
+
+
+{
+          "name": "status Appointment",
+          "request": {
+            "method": "PUT",
+            "url": "http://127.0.0.1:8000/api/appointments/5/status/",
+            "body":{},
+ }}        
+ 
+{
+          "name": "Doctor Appointment ",
+          "request": {
+            "method": "GET",
+            "url": "http://127.0.0.1:8000/api/appointments/doctor/",
+            "body":[]
+}}             
+
+{
+          "name": "Doctor Record",
+          "request": {
+            "method": "POST",
+            "url": "http://127.0.0.1:8000/api/records/add/",
+            "body":{
+                "appointment": 2,
+                "doctor": 1,
+               "patient": 3,
+               "diagnosis": "Viral fever",
+                "prescription": "Dolo 650, rest"
+            },
+            "output":{
+                "appointment": 2,
+                "doctor": 1,
+                "patient": 3,
+                 "diagnosis": "Viral fever",
+               "prescription": "Dolo 650, rest"
+               }
+}} 
+
+{
+          "name": "Patient Record ",
+          "request": {
+          "method": "GET",
+           "url": "http://127.0.0.1:8000/api/records/my/",
+            "body":[]
+}} 
